@@ -8,17 +8,17 @@
 &nbsp;
 [![OpenSSF Best Practices](https://bestpractices.coreinfrastructure.org/projects/6292/badge)](https://bestpractices.coreinfrastructure.org/projects/6292)
 &nbsp;
-[![CI Build](https://github.com/irongut/CodeCoverageSummary/actions/workflows/ci-build.yml/badge.svg)](https://github.com/irongut/CodeCoverageSummary/actions/workflows/ci-build.yml)
+[![CI Build](https://github.com/xf9c/CodeCoverageSummary/actions/workflows/ci-build.yml/badge.svg)](https://github.com/xf9c/CodeCoverageSummary/actions/workflows/ci-build.yml)
 &nbsp;
-[![CodeQL Scan](https://github.com/irongut/CodeCoverageSummary/actions/workflows/codeql-scan.yml/badge.svg)](https://github.com/irongut/CodeCoverageSummary/actions/workflows/codeql-scan.yml)
+[![CodeQL Scan](https://github.com/xf9c/CodeCoverageSummary/actions/workflows/codeql-scan.yml/badge.svg)](https://github.com/xf9c/CodeCoverageSummary/actions/workflows/codeql-scan.yml)
 
 </div>
 
 A GitHub Action that reads Cobertura format code coverage files from your test suite and outputs a text or markdown summary. This summary can be posted as a Pull Request comment or included in Release Notes by other actions to give you an immediate insight into the health of your code without using a third-party site.
 
-Code Coverage Summary is designed for use with any test framework that outputs coverage in Cobertura XML format including [Coverlet](https://github.com/coverlet-coverage/coverlet), [gcovr](https://github.com/gcovr/gcovr), [simplecov](https://github.com/simplecov-ruby/simplecov) and [MATLAB](https://uk.mathworks.com/help/matlab/ref/matlab.unittest.plugins.codecoverageplugin-class.html). See the [FAQ](https://github.com/irongut/CodeCoverageSummary/wiki/Frequently-Asked-Questions#which-testing-tools-does-ccs-work-with) for more details. If it doesn't work with your tooling please [open an issue][new-issue] to discuss the problem.
+Code Coverage Summary is designed for use with any test framework that outputs coverage in Cobertura XML format including [Coverlet](https://github.com/coverlet-coverage/coverlet), [gcovr](https://github.com/gcovr/gcovr), [simplecov](https://github.com/simplecov-ruby/simplecov) and [MATLAB](https://uk.mathworks.com/help/matlab/ref/matlab.unittest.plugins.codecoverageplugin-class.html). See the [FAQ](https://github.com/xf9c/CodeCoverageSummary/wiki/Frequently-Asked-Questions#which-testing-tools-does-ccs-work-with) for more details. If it doesn't work with your tooling please [open an issue][new-issue] to discuss the problem.
 
-Code Coverage Summary is compatible with [StepSecurity Secure Workflows](https://github.com/step-security/secure-workflows) and uses a Docker image that is cryptographically signed using [Sigstore](https://www.sigstore.dev/). For instructions how to verify the Docker image please see the [Wiki](https://github.com/irongut/CodeCoverageSummary/wiki/Verify-the-Docker-Image).
+Code Coverage Summary is compatible with [StepSecurity Secure Workflows](https://github.com/step-security/secure-workflows) and uses a Docker image that is cryptographically signed using [Sigstore](https://www.sigstore.dev/). For instructions how to verify the Docker image please see the [Wiki](https://github.com/xf9c/CodeCoverageSummary/wiki/Verify-the-Docker-Image).
 
 **As a Docker based action Code Coverage Summary requires a Linux runner.**
 
@@ -123,7 +123,7 @@ Minimum allowed line rate is 50%
 
 ```yaml
 name: Code Coverage Summary Report
-uses: irongut/CodeCoverageSummary@v1.3.0
+uses: xf9c/CodeCoverageSummary@v1.3.1
 with:
   filename: coverage.cobertura.xml
 ```
@@ -163,7 +163,7 @@ jobs:
       run: dotnet test src/Example.sln --configuration Release --no-build --verbosity normal --collect:"XPlat Code Coverage" --results-directory ./coverage
 
     - name: Code Coverage Report
-      uses: irongut/CodeCoverageSummary@v1.3.0
+      uses: xf9c/CodeCoverageSummary@v1.3.1
       with:
         filename: coverage/**/coverage.cobertura.xml
         badge: true
@@ -193,33 +193,7 @@ This means, given a version number MAJOR.MINOR.PATCH, we will increment the:
 2. MINOR version when we add functionality in a backwards compatible manner
 3. PATCH version when we make backwards compatible bug fixes
 
-
-## Contributing
-
-### Report Bugs
-
-Please make sure the bug is not already reported by searching existing [issues].
-
-If you're unable to find an existing issue addressing the problem please [open a new one][new-issue]. Be sure to include a title and clear description, as much relevant information as possible, a workflow sample and any logs demonstrating the problem.
-
-
-### Suggest an Enhancement
-
-Please [open a new issue][new-issue].
-
-
-### Submit a Pull Request
-
-Discuss your idea first, so that your changes have a good chance of being merged in.
-
-Submit your pull request against the `master` branch.
-
-Pull requests that include documentation and relevant updates to README.md are merged faster, because you won't have to wait for somebody else to complete your contribution.
-
-
 ## License
 
 Code Coverage Summary is available under the MIT license, see the [LICENSE](LICENSE) file for more info.
 
-[issues]: https://github.com/irongut/CodeCoverageSummary/issues
-[new-issue]: https://github.com/irongut/CodeCoverageSummary/issues/new
