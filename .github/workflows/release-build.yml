@@ -23,13 +23,14 @@ jobs:
     - name: Harden Runner
       uses: step-security/harden-runner@5c7944e73c4c2a096b17a9cb74d65b6c2bbafbde
       with:
-        egress-policy: block
+        egress-policy: audit
         allowed-endpoints: >
           api.nuget.org:443
           dotnetbuilds.azureedge.net:443
           dotnetcli.azureedge.net:443
           dotnetcli.blob.core.windows.net:443
           github.com:443
+          aka.ms:443
 
     - name: Checkout
       uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332
@@ -64,7 +65,7 @@ jobs:
       - name: Harden Runner
         uses: step-security/harden-runner@5c7944e73c4c2a096b17a9cb74d65b6c2bbafbde
         with:
-          egress-policy: block
+          egress-policy: audit
           allowed-endpoints: >
             api.github.com:443
             api.nuget.org:443
