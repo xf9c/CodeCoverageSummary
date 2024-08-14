@@ -1,9 +1,8 @@
-name: 'Code Coverage Summary'
-author: 'Irongut <murray.dave@outlook.com>'
+name: 'Code Coverage Summary Multi-arch'
 description: 'A GitHub Action that reads Cobertura format code coverage files and outputs a text or markdown summary.'
 branding:
   icon: book-open
-  color: purple
+  color: gray-dark
 inputs:
   filename:
     description: 'A comma separated list of code coverage files to analyse. Also supports using glob patterns to match multiple files.'
@@ -42,7 +41,7 @@ inputs:
     default: '50 75'
 runs:
   using: 'docker'
-  image: 'docker://ghcr.io/irongut/codecoveragesummary:v1.3.0'
+  image: 'docker://ghcr.io/xf9c/codecoveragesummary:v1.3.1'
   args:
     - '--files'
     - ${{ inputs.filename }}
