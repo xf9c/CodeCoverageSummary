@@ -15,7 +15,7 @@ jobs:
       uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332
       
     - name: Test Action
-      uses: irongut/CodeCoverageSummary@master
+      uses: xf9c/CodeCoverageSummary@master
       with:
         filename: /src/coverage.*.xml
         badge: true
